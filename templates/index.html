@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weight Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Weight Converter</h1>
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="weight">Enter Weight:</label>
+                <input type="number" step="any" name="weight" id="weight" required>
+            </div>
+
+            <div class="form-group">
+                <label for="original_unit">Original Unit:</label>
+                <select name="original_unit" id="original_unit" required>
+                    <option value="t">Tonne (t)</option>
+                    <option value="kg">Kilogram (kg)</option>
+                    <option value="mg">Milligram (mg)</option>
+                    <option value="q">Quintal (q)</option>
+                    <option value="lb">Pound (lb)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="new_unit">Convert To:</label>
+                <select name="new_unit" id="new_unit" required>
+                    <option value="t">Tonne (t)</option>
+                    <option value="kg">Kilogram (kg)</option>
+                    <option value="mg">Milligram (mg)</option>
+                    <option value="q">Quintal (q)</option>
+                    <option value="lb">Pound (lb)</option>
+                </select>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <span class="label">Converted Weight:</span>
+            <span class="value">{{ result }}</span>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
