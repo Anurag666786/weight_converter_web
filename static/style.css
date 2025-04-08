@@ -20,10 +20,10 @@ h1 {
 /* Form container styling */
 form {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 320px;
     text-align: center;
 }
 
@@ -33,17 +33,18 @@ label {
     margin-bottom: 8px;
     font-weight: bold;
     color: #555;
+    text-align: left;
 }
 
 /* Input and select styling */
 input[type="text"],
 select {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
+    padding: 10px;
+    margin-bottom: 18px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 5px;
+    font-size: 15px;
 }
 
 /* Button styling */
@@ -51,8 +52,8 @@ button {
     background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
+    padding: 10px 18px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
@@ -62,15 +63,28 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Result section styling */
-h2 {
-    margin-top: 20px;
-    color: #333;
+/* Result section wrapper */
+.result-box {
+    margin-top: 30px;
+    padding: 20px;
+    width: 320px;
+    background-color: #e9f7fe;
+    border-left: 5px solid #007bff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    text-align: center;
 }
 
-p {
-    font-size: 18px;
+/* Result title */
+.result-box h2 {
+    margin-top: 0;
     color: #007bff;
-    font-weight: bold;
-    text-align: center;
+}
+
+/* Result text */
+.result-box p {
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;
+    margin: 10px 0 0;
 }

@@ -4,62 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weight Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Weight Converter</h1>
+
     <form method="POST">
         <label for="weight">Enter weight:</label>
         <input type="text" id="weight" name="weight" placeholder="Enter weight" required>
-        <br><br>
 
         <label for="original_unit">From:</label>
         <select id="original_unit" name="original_unit" required>
             <option value="g">Grams</option>
-            <option value="kg">Kilograms</option>
-            <option value="mg">Milligrams</option>
-            <option value="t">Tons</option>
-            <option value="q">Quintals</option>
-            <option value="lb">Pounds</option>
-            <option value="oz">Ounces</option>
-            <option value="ct">Carats</option>
-            <option value="gr">Grains</option>
-            <option value="st">Stones</option>
-            <option value="sh.t">Short Tons</option>
-            <option value="l.t">Long Tons</option>
-            <option value="dr">Drams</option>
-            <option value="dan">Dans</option>
-            <option value="jin">Jins</option>
-            <option value="qian">Qians</option>
-            <option value="liang">Liangs</option>
-        </select>
-        <br><br>
-
-        <label for="new_unit">To:</label>
-        <select id="new_unit" name="new_unit" required>
-            <option value="g">Grams</option>
-            <option value="kg">Kilograms</option>
-            <option value="mg">Milligrams</option>
-            <option value="t">Tons</option>
-            <option value="q">Quintals</option>
-            <option value="lb">Pounds</option>
-            <option value="oz">Ounces</option>
-            <option value="ct">Carats</option>
-            <option value="gr">Grains</option>
-            <option value="st">Stones</option>
-            <option value="sh.t">Short Tons</option>
-            <option value="l.t">Long Tons</option>
-            <option value="dr">Drams</option>
-            <option value="dan">Dans</option>
-            <option value="jin">Jins</option>
-            <option value="qian">Qians</option>
-            <option value="liang">Liangs</option>
-        </select>
-        <br><br>
-
-        <button type="submit">Convert</button>
-    </form>
-
-    <h2>Result:</h2>
-    <p>{{ result }}</p>
-</body>
-</html>
+            <option value="
