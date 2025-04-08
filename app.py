@@ -12,7 +12,7 @@ def index():
             original_unit = request.form["original_unit"]
             new_unit = request.form["new_unit"]
 
-            # Convert original weight to grams
+            # Conversion dictionary
             conversions = {
                 "t": weight * 1_000_000,
                 "kg": weight * 1000,
@@ -33,7 +33,12 @@ def index():
                 "liang": weight * 50
             }
 
-            weight_in_grams = conversions.get(original_unit, 0)
+            # Ensure unit exists
+            if original_unit not in conversions:
+                result = "Invalid original unit."
+                return render_template("index.html", result=result)
+
+            weight_in_grams = conversions[original_unit]
 
             # Check for zero weight
             if weight_in_grams == 0:
