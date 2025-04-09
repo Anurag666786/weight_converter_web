@@ -1,7 +1,7 @@
 /* General body styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: #ababfe;
     margin: 0;
     padding: 0;
     display: flex;
@@ -13,7 +13,7 @@ body {
 
 /* Page title styling */
 h1 {
-    color: #333;
+    color: #007bff;
     margin-bottom: 20px;
 }
 

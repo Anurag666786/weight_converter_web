@@ -71,7 +71,7 @@ def index():
         except (ValueError, KeyError):
             result = "Invalid input. Please check your values."
 
-    return render_template("index.html", result=result or "No conversion yet.")
+    return render_template("index.html", result=result or "Enter the value and press covert")
 
 if __name__ == "__main__":
     app.run(debug=True)
