@@ -30,7 +30,8 @@ def index():
                 "dan": weight * 50000,
                 "jin": weight * 500,
                 "qian": weight * 5,
-                "liang": weight * 50
+                "liang": weight * 50,
+                "µg": weight * 0.000001
             }
 
             # Ensure unit exists
@@ -62,7 +63,8 @@ def index():
                     "dan": weight_in_grams / 50000,
                     "jin": weight_in_grams / 500,
                     "qian": weight_in_grams / 5,
-                    "liang": weight_in_grams / 50
+                    "liang": weight_in_grams / 50,
+                    "µg": weight_in_grams / 0.000001                   
                 }
 
                 result = round(to_unit.get(new_unit, 0), 4)
