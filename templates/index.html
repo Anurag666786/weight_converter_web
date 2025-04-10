@@ -5,57 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weight Converter</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
 </head>
 <body>
+    <button class="dark-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <div id="loader" class="loader hidden"></div>
+
     <h1>Weight Converter</h1>
-    <form method="POST">
-        <label for="weight">Enter the value of weight:</label>
-        <input type="text" id="weight" name="weight" placeholder="Enter value" required>
+    <form method="POST" onsubmit="showLoader()">
+        <label for="weight">Enter weight:</label>
+        <input type="text" id="weight" name="weight" placeholder="Enter weight" required>
         <br><br>
 
         <label for="original_unit">From:</label>
         <select id="original_unit" name="original_unit" required>
-            <option value="g">Grams(g)</option>
-            <option value="kg">Kilograms(kg)</option>
-            <option value="mg">Milligrams(mg)</option>
-            <option value="t">Tons(t)</option>
-            <option value="q">Quintals(q)</option>
-            <option value="lb">Pounds(lb)</option>
-            <option value="oz">Ounces(oz)</option>
-            <option value="ct">Carats(ct)</option>
-            <option value="gr">Grains(gr)</option>
-            <option value="st">Stones(st)</option>
-            <option value="sh.t">Short Tons(sh.t)</option>
-            <option value="l.t">Long Tons(l.t)</option>
-            <option value="dr">Drams(dr)</option>
-            <option value="dan">Dans(dan)</option>
-            <option value="jin">Jins(jin)</option>
-            <option value="qian">Qians(qians)</option>
-            <option value="liang">Liangs(liangs)</option>
-            <option value="µg">Microgram(µg)</option>
+            <option value="g">Grams</option>
+            <option value="kg">Kilograms</option>
+            <option value="mg">Milligrams</option>
+            <option value="t">Tons</option>
+            <option value="q">Quintals</option>
+            <option value="lb">Pounds</option>
+            <option value="oz">Ounces</option>
+            <option value="ct">Carats</option>
+            <option value="gr">Grains</option>
+            <option value="st">Stones</option>
+            <option value="sh.t">Short Tons</option>
+            <option value="l.t">Long Tons</option>
+            <option value="dr">Drams</option>
+            <option value="dan">Dans</option>
+            <option value="jin">Jins</option>
+            <option value="qian">Qians</option>
+            <option value="liang">Liangs</option>
         </select>
         <br><br>
 
         <label for="new_unit">To:</label>
         <select id="new_unit" name="new_unit" required>
-            <option value="g">Grams(g)</option>
-            <option value="kg">Kilograms(kg)</option>
-            <option value="mg">Milligrams(mg)</option>
-            <option value="t">Tons(t)</option>
-            <option value="q">Quintals(q)</option>
-            <option value="lb">Pounds(lb)</option>
-            <option value="oz">Ounces(oz)</option>
-            <option value="ct">Carats(ct)</option>
-            <option value="gr">Grains(gr)</option>
-            <option value="st">Stones(st)</option>
-            <option value="sh.t">Short Tons(sh.t)</option>
-            <option value="l.t">Long Tons(l.t)</option>
-            <option value="dr">Drams(dr)</option>
-            <option value="dan">Dans(dan)</option>
-            <option value="jin">Jins(jin)</option>
-            <option value="qian">Qians(qian)</option>
-            <option value="liang">Liangs(liang)</option>
-            <option value="µg">Microgram(µg)</option>
+            <option value="g">Grams</option>
+            <option value="kg">Kilograms</option>
+            <option value="mg">Milligrams</option>
+            <option value="t">Tons</option>
+            <option value="q">Quintals</option>
+            <option value="lb">Pounds</option>
+            <option value="oz">Ounces</option>
+            <option value="ct">Carats</option>
+            <option value="gr">Grains</option>
+            <option value="st">Stones</option>
+            <option value="sh.t">Short Tons</option>
+            <option value="l.t">Long Tons</option>
+            <option value="dr">Drams</option>
+            <option value="dan">Dans</option>
+            <option value="jin">Jins</option>
+            <option value="qian">Qians</option>
+            <option value="liang">Liangs</option>
         </select>
         <br><br>
 
@@ -66,5 +72,11 @@
     <div class="result-box">
         <p>{{ result }}</p>
     </div>
+
+    <script>
+        function showLoader() {
+            document.getElementById('loader').classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>
