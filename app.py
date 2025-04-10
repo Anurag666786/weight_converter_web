@@ -1,18 +1,20 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect, url_for
 
 app = Flask(__name__)
+app.secret_key = "your_secret_key_here"  # Needed for sessions
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     result = None
+    if "history" not in session:
+        session["history"] = []
+
     if request.method == "POST":
         try:
-            # Get form data
             weight = float(request.form["weight"])
             original_unit = request.form["original_unit"]
             new_unit = request.form["new_unit"]
 
-            # Conversion dictionary
             conversions = {
                 "t": weight * 1_000_000,
                 "kg": weight * 1000,
@@ -34,18 +36,15 @@ def index():
                 "µg": weight * 0.000001
             }
 
-            # Ensure unit exists
             if original_unit not in conversions:
                 result = "Invalid original unit."
-                return render_template("index.html", result=result)
+                return render_template("index.html", result=result, history=session["history"])
 
             weight_in_grams = conversions[original_unit]
 
-            # Check for zero weight
             if weight_in_grams == 0:
                 result = "Conversion not possible. Weight cannot be zero."
             else:
-                # Convert grams to new unit
                 to_unit = {
                     "t": weight_in_grams / 1_000_000,
                     "kg": weight_in_grams / 1000,
@@ -64,14 +63,26 @@ def index():
                     "jin": weight_in_grams / 500,
                     "qian": weight_in_grams / 5,
                     "liang": weight_in_grams / 50,
-                    "µg": weight_in_grams / 0.000001                   
+                    "µg": weight_in_grams / 0.000001
                 }
 
                 result = round(to_unit.get(new_unit, 0), 4)
+                history_item = f"{weight} {original_unit} = {result} {new_unit}"
+
+                # Update history
+                session["history"].append(history_item)
+                if len(session["history"]) > 10:  # Limit history to last 10 entries
+                    session["history"] = session["history"][-10:]
+                session.modified = True
         except (ValueError, KeyError):
             result = "Invalid input. Please check your values."
 
-    return render_template("index.html", result=result or "Enter the value and press convert")
+    return render_template("index.html", result=result or "Enter the value and press convert", history=session["history"])
+
+@app.route("/clear_history")
+def clear_history():
+    session.pop("history", None)
+    return redirect(url_for("index"))
 
 if __name__ == "__main__":
     app.run(debug=True)
