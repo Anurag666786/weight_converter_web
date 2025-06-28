@@ -12,9 +12,9 @@ body {
     z-index: 1;
 }
 
-/* Background SVG container */
+/* Background SVG container (uses local static file) */
 .background-svg {
-    background: url('https://www.svgbackgrounds.com/wp-content/uploads/2021/07/wave-haikei.svg') no-repeat center center fixed;
+    background: url("/static/wave-background.svg") no-repeat center center fixed;
     background-size: cover;
     position: absolute;
     top: 0;
