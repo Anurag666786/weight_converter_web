@@ -9,12 +9,15 @@
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
         }
+
         function showLoader() {
             document.getElementById('loader').classList.remove('hidden');
         }
     </script>
 </head>
 <body>
+    <div class="background-svg"></div>
+
     <button class="dark-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <div id="loader" class="loader hidden"></div>
 

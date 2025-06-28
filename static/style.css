@@ -1,7 +1,6 @@
 /* General body styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
     margin: 0;
     padding: 0;
     display: flex;
@@ -9,6 +8,27 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+/* Background SVG container */
+.background-svg {
+    background: url('https://www.svgbackgrounds.com/wp-content/uploads/2021/07/wave-haikei.svg') no-repeat center center fixed;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    opacity: 0.25;
+}
+
+/* Foreground content stays on top */
+form, h1, h2, .result-box, .history-box, .dark-toggle, #loader {
+    z-index: 2;
+    position: relative;
 }
 
 /* Page title styling */
@@ -167,6 +187,7 @@ body.dark-mode .clear-history {
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
+    z-index: 3;
 }
 
 /* Loader styles */
